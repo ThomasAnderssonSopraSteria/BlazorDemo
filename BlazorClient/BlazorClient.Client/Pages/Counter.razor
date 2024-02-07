@@ -1,0 +1,25 @@
+﻿@page "/counter"
+@rendermode InteractiveWebAssembly  //Andra modes är InteractiveServer, InteractiveAuto
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<CounterComponent />
+<CounterComponent InitialCount="5" />
+<Expander Header="My Countercomponent">
+    <CounterComponentInput />
+</Expander>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

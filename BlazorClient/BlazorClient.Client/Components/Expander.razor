@@ -1,0 +1,23 @@
+﻿
+<h3>@Header (<span @onclick=OnCollapserClick>@(IsCollapsed?"+":"-")</span>)</h3>
+
+@if (!IsCollapsed)
+{
+    @ChildContent
+}
+
+@code {
+    [Parameter]
+    public string? Header { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool IsCollapsed { get; set; }
+
+    private void OnCollapserClick(MouseEventArgs e)
+    {
+        IsCollapsed = !IsCollapsed;
+    }
+}
