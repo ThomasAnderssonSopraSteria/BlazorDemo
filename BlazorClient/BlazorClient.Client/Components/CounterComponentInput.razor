@@ -11,6 +11,9 @@
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
+    [Parameter]
+    public int? InitialCount { get; set; }
+
     private int currentCount = 0;
 
     public string CurrentCountString
@@ -25,15 +28,12 @@
         }
     }
 
-    [Parameter]
-    public int? InitialCount { get; set; }
-
     private void IncrementCount()
     {
         currentCount++;
     }
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         currentCount = InitialCount ?? 0;
     }

@@ -1,7 +1,6 @@
 ﻿@page "/weather"
 @using BlazorDemo.Core
 @inject HttpClient Http
-@inject NavigationManager NavigationManager
 
 <PageTitle>Weather</PageTitle>
 
@@ -37,6 +36,9 @@ else
         </tbody>
     </table>
 }
+<Expander Header="My counter">
+<CounterComponentInput InitialCount="5" />
+</Expander>
 
 @code {
     private WeatherForecast[]? forecasts;

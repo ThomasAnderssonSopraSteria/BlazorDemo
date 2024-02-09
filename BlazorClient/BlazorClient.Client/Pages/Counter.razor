@@ -9,11 +9,10 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
-<CounterComponent />
-<CounterComponent InitialCount="5" />
-<Expander Header="My Countercomponent">
-    <CounterComponentInput />
-</Expander>
+
+@* <Expander Header="My header" IsCollapsed="true">
+    <CounterComponent />
+</Expander> *@
 
 @code {
     private int currentCount = 0;

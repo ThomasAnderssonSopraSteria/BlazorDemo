@@ -1,5 +1,5 @@
 ﻿
-<h3>@Header (<span @onclick=OnCollapserClick>@(IsCollapsed?"+":"-")</span>)</h3>
+<div @onclick=OnCollapserClick><h3>@Header (<span>@(IsCollapsed ? "+" : "-")</span>)</h3></div>
 
 @if (!IsCollapsed)
 {

@@ -1,0 +1,32 @@
+﻿@page "/editcustomer"
+@inject ICustomerService CustomerService
+
+<PageTitle>Edit Customer</PageTitle>
+
+<form method="post" @onsubmit="Submit" @formname="customer-plain-form">
+    <AntiforgeryToken />
+    <div>
+        <label>
+            Namn: <InputText @bind-Value="Model!.Name" />
+        </label>
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+@code {
+    [SupplyParameterFromForm]
+    public Customer? Model { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Model ??= new();
+    }
+
+    private void Submit()
+    {
+        CustomerService.SaveCustomer(Model!);
+    }
+
+}
